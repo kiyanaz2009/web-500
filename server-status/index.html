@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Server Status</title>
+    <style>
+        #status {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .stopped {
+            color: red;
+        }
+
+        .running {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="status" class="stopped">the server is stopped!!!</div>
+    <button onclick="toggleServer()" id="serverBtn">Start Server</button>
+
+    <script>
+        function toggleServer() {
+            let status = document.getElementById("status");
+            let button = document.getElementById("serverBtn");
+
+            if (status.classList.contains("stopped")) {
+                status.textContent = "the server is on";
+                status.classList.remove("stopped");
+                status.classList.add("running");
+                button.textContent = "Stop Server";
+            } else {
+                status.textContent = "the server is stopped!!!";
+                status.classList.remove("running");
+                status.classList.add("stopped");
+                button.textContent = "Start Server";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
